@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "e84b4fdf-78a3-40a0-b26f-ff8df841997c"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -72,10 +75,12 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "standup-wheel:build:production"
+              "browserTarget": "standup-wheel:build:production",
             },
             "development": {
-              "browserTarget": "standup-wheel:build:development"
+              "browserTarget": "standup-wheel:build:development",
+              "port": 9200,
+              "open": true
             }
           },
           "defaultConfiguration": "development"
