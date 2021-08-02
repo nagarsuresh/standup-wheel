@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { arc } from 'd3-shape';
+import { scaleOrdinal } from 'd3-scale';
+import { schemeTableau10 } from 'd3-scale-chromatic';
 
 @Component({
   selector: 'app-root',
@@ -13,22 +15,36 @@ export class AppComponent {
 
   NUM_PERSONS = 10;
 
+  rotateBy = 0;
+
   persons: { name: string, startAngle: number, endAngle: number, color: string, path?: string | null }[] = [];
+
+  get transform() {
+    return `rotate(${this.rotateBy})`;
+  }
 
   constructor() {
     this.fillPersons();
     this.generatePath();
   }
 
+  @HostListener('click')
+  clicked() {
+
+    this.rotateBy += this.NUM_PERSONS * 360 + Math.round(Math.random() * 360);
+  }
+
   fillPersons(): void {
     const increment = (Math.PI * 2) / this.NUM_PERSONS;
+    const colorScale = scaleOrdinal(schemeTableau10);
     let startAngle = 0;
     for (let i = 0; i < this.NUM_PERSONS; i++) {
+      const name = `Person ${i}`;
       this.persons.push({
-        name: `Person ${i}`,
+        name: name,
         startAngle: startAngle,
         endAngle: (startAngle + increment),
-        color: `#${Math.floor(Math.random() * 16777215).toString(16)}`
+        color: colorScale(name)
       });
       startAngle += increment;
     }

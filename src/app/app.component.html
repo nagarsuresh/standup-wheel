@@ -1,5 +1,5 @@
 <svg class="mainSvg" viewBox="-100 -100 200 200">
-  <g transform="rotate(100)">
+  <g [attr.transform]="transform" class="circle">
     <path [attr.d]="person.path" *ngFor="let person of persons" [style.fill]="person.color"></path>
   </g>
 </svg>
