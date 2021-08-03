@@ -1,13 +1,69 @@
+<clr-main-container>
+  <clr-header>
+    <div class="branding">
+      <a href="javascript://">
+        <cds-icon shape="vm-bug"></cds-icon>
+        <span class="title">Project Wheel</span>
+      </a>
+    </div>
+  </clr-header>
+  <!-- <nav class="subnav" [clr-nav-level]="1">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="javascript://">Subnav Link 1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="javascript://">Subnav Link 2</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="javascript://">Subnav Link 3</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="javascript://">Subnav Link 4</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="javascript://">Subnav Link 5</a>
+      </li>
+    </ul>
+  </nav> -->
+  <div class="content-container">
+    <main class="content-area">
+        <svg class="mainSvg" viewBox="-100 -100 200 200">
+          <g [attr.transform]="transform" class="circle">
+            <g *ngFor="let person of persons">
+              <path [attr.d]="person.path" [style.fill]="person.color" [attr.id]="person.name" class="slice-path"></path>
+              <text>
+                <textPath [attr.href]="'#'+person.name" class="text-path-name" startOffset="5%">
+                  {{person.name}}
+                </textPath>
+              </text>
+            </g>
+          </g>
+        </svg>
 
-<svg class="mainSvg" viewBox="-100 -100 200 200">
-  <g [attr.transform]="transform" class="circle">
-    <g *ngFor="let person of persons">
-      <path [attr.d]="person.path" [style.fill]="person.color" [attr.id]="person.name"></path>
-      <text>
-        <textPath [attr.href]="'#'+person.name">
-        {{person.name}}
-        </textPath>
-      </text>
-    </g>
-  </g>
-</svg>
+
+        <div cds-layout="vertical gap:sm">
+          <cds-tag readonly status="info">Info</cds-tag>
+          <cds-tag readonly status="success">Success</cds-tag>
+          <cds-tag readonly status="warning">Warning</cds-tag>
+          <cds-tag readonly status="danger">Danger</cds-tag>
+        </div>
+    </main>
+    <!-- <nav class="sidenav" [clr-nav-level]="2">
+      <section class="sidenav-content">
+        <section class="nav-group">
+          <input id="tabexample2" type="checkbox" />
+          <label for="tabexample2">Sidenav</label>
+          <ul class="nav-list">
+            <li><a class="nav-link">Link 1</a></li>
+            <li><a class="nav-link">Link 2</a></li>
+            <li><a class="nav-link active">Link 3</a></li>
+            <li><a class="nav-link">Link 4</a></li>
+            <li><a class="nav-link">Link 5</a></li>
+            <li><a class="nav-link">Link 6</a></li>
+          </ul>
+        </section>
+      </section>
+    </nav> -->
+  </div>
+</clr-main-container>

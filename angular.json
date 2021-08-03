@@ -29,11 +29,21 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "optimization": {
+              "styles": {
+                "inlineCritical": false
+              }
+            },
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
+              "node_modules/@clr/ui/clr-ui.min.css",
+              "node_modules/@cds/city/css/bundles/default.min.css",
+              "node_modules/@cds/core/styles/module.shims.min.css",
+              "node_modules/@cds/core/global.min.css",
+              "node_modules/modern-normalize/modern-normalize.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -44,12 +54,12 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "10mb"
                 },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumError": "40kb"
                 }
               ],
               "fileReplacements": [

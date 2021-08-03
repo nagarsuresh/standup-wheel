@@ -3,6 +3,9 @@ import { arc } from 'd3-shape';
 import { scaleOrdinal } from 'd3-scale';
 import { schemeTableau10 } from 'd3-scale-chromatic';
 
+
+import '@cds/core/tag/register.js';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -54,7 +57,7 @@ export class AppComponent {
     this.persons.forEach(person => {
       person.path = arcFn({
         innerRadius: 10,
-        outerRadius: 100,
+        outerRadius: 80,
         startAngle: person.startAngle,
         endAngle: person.endAngle,
       });
