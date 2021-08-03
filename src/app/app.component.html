@@ -1,5 +1,13 @@
+
 <svg class="mainSvg" viewBox="-100 -100 200 200">
   <g [attr.transform]="transform" class="circle">
-    <path [attr.d]="person.path" *ngFor="let person of persons" [style.fill]="person.color"></path>
+    <g *ngFor="let person of persons">
+      <path [attr.d]="person.path" [style.fill]="person.color" [attr.id]="person.name"></path>
+      <text>
+        <textPath [attr.href]="'#'+person.name">
+        {{person.name}}
+        </textPath>
+      </text>
+    </g>
   </g>
 </svg>
