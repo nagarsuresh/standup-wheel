@@ -75,7 +75,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "standup-wheel:build:production",
+              "browserTarget": "standup-wheel:build:production"
             },
             "development": {
               "browserTarget": "standup-wheel:build:development",
