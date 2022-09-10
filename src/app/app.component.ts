@@ -33,8 +33,13 @@ export class AppComponent {
 
   @HostListener('click')
   clicked() {
-
     this.rotateBy += this.NUM_PERSONS * 360 + Math.round(Math.random() * 360);
+  }
+
+  @HostListener('contextmenu')
+  escape() {
+    console.log('going to throw exception');
+    throw new Error('Testing source maps');
   }
 
   fillPersons(): void {
